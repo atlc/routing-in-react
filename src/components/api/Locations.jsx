@@ -36,8 +36,8 @@ class Locations extends Component {
                             jsonText={'See my individual card here!'}
                             jsonLink={`/locations/${location.id}`}
                         />
-                        <Button href={location.residents} variant={'dark'} style={{margin: "5px"}}>JSON link of known residents</Button>
-                        <Button href={location.films} variant={'dark'} style={{margin: "5px"}}>JSON link of films featured in</Button>
+                        <a href={location.residents} variant={'dark'} style={{margin: "5px"}}>JSON link of known residents</a>
+                        <a href={location.films} variant={'dark'} style={{margin: "5px"}}>JSON link of films featured in</a>
                     </>
                 ) : null}
             </CardGroup>

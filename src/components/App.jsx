@@ -10,14 +10,13 @@ import FilmByID from './api/FilmByID';
 import Locations from './api/Locations';
 import LocationByID from './api/LocationByID';
 import People from './api/People';
+import PersonByID from './api/PersonByID';
 import Species from './api/Species';
+import SpeciesByID from './api/SpeciesByID';
 import Vehicles from './api/Vehicles';
+import VehicleByID from './api/VehicleByID';
 
 class App extends Component {
-    state = {
-        isInitialLoad: true
-    }
-
     render() {
         return (
             <Container fluid className="text-center">
@@ -47,10 +46,13 @@ class App extends Component {
                                 <Route exact path="/films" component={Films} />
                                 <Route path="/films/:id" component={FilmByID} />
                                 <Route exact path="/people" component={People} />
+                                <Route path="/people/:id" component={PersonByID} />
                                 <Route exact path="/locations" component={Locations} />
                                 <Route path="/locations/:id" component={LocationByID} />
                                 <Route exact path="/species" component={Species} />
+                                <Route path="/species/:id" component={SpeciesByID} />
                                 <Route exact path="/vehicles" component={Vehicles} />
+                                <Route exact path="/vehicles/:id" component={VehicleByID} />
                             </Switch>
                         </>
                     </Router>

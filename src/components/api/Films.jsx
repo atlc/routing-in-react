@@ -10,7 +10,7 @@ class Films extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://ghibliapi.herokuapp.com/films${this.props.match.params.id ? '/'+this.props.match.params.id : '/'}`)
+        fetch('https://ghibliapi.herokuapp.com/films')
             .then(res => res.json())
             .then(res => this.setState({films: res}))
     }
