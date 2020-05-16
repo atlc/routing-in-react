@@ -8,6 +8,7 @@ import Logo from './Logo';
 import Films from './api/Films';
 import FilmByID from './api/FilmByID';
 import Locations from './api/Locations';
+import LocationByID from './api/LocationByID';
 import People from './api/People';
 import Species from './api/Species';
 import Vehicles from './api/Vehicles';
@@ -24,22 +25,22 @@ class App extends Component {
                     <Router>
                         <>
                             <Link to="/">
-                                <Button variant="info" style={{margin: "10px"}}>Home</Button>
+                                <Button variant="dark" style={{margin: "10px"}}>Home</Button>
                             </Link>
                             <Link to="/films">
-                                <Button variant="info" style={{margin: "10px"}}>Films</Button>
+                                <Button variant="dark" style={{margin: "10px"}}>Films</Button>
                             </Link>
                             <Link to="/people">
-                                <Button variant="info" style={{margin: "10px"}}>People</Button>
+                                <Button variant="dark" style={{margin: "10px"}}>People</Button>
                             </Link>
                             <Link to="/locations">
-                                <Button variant="info" style={{margin: "10px"}}>Locations</Button>
+                                <Button variant="dark" style={{margin: "10px"}}>Locations</Button>
                             </Link>
                             <Link to="/species">
-                                <Button variant="info" style={{margin: "10px"}}>Species</Button>
+                                <Button variant="dark" style={{margin: "10px"}}>Species</Button>
                             </Link>
                             <Link to="/vehicles">
-                                <Button variant="info" style={{margin: "10px"}}>Vehicles</Button>
+                                <Button variant="dark" style={{margin: "10px"}}>Vehicles</Button>
                             </Link>
                             <Switch>
                                 <Route exact path="/" component={Logo} />
@@ -47,6 +48,7 @@ class App extends Component {
                                 <Route path="/films/:id" component={FilmByID} />
                                 <Route exact path="/people" component={People} />
                                 <Route exact path="/locations" component={Locations} />
+                                <Route path="/locations/:id" component={LocationByID} />
                                 <Route exact path="/species" component={Species} />
                                 <Route exact path="/vehicles" component={Vehicles} />
                             </Switch>

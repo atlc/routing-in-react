@@ -4,42 +4,41 @@ import CardDisplay from '../CardDisplay';
 import 'isomorphic-fetch';
 import 'es6-promise';
 
-class Locations extends Component {
+class LocationByID extends Component {
     state = {
-        locations: null
+        location: null
     }
 
     componentDidMount() {
-        fetch('https://ghibliapi.herokuapp.com/locations')
+        fetch(`https://ghibliapi.herokuapp.com/locations/${this.props.match.params.id}`)
             .then(res => res.json())
-            .then(res => this.setState({locations: res}))
+            .then(res => this.setState({location: res}))
     }
 
     render() {
         return (
             <CardGroup>
-                {this.state.locations ? this.state.locations.map(location =>
+                {this.state.location ?
                     <CardDisplay
-                        key={location.id}
-                        id={location.id}
-                        title={location.name}
-                        description={`${location.climate} Climate; ${location.terrain} Terrain `}
+                        key={this.state.location.id}
+                        id={this.state.location.id}
+                        title={this.state.location.name}
+                        description={`${this.state.location.climate} Climate; ${this.state.location.terrain} Terrain`}
                         attributes={
-                            `Surface water percentage: ${location.surface_water}%
+                            `Surface water percentage: ${this.state.location.surface_water}%
+                            <a href=${this.state.location.residents}>JSON link of known residents</a>
+                            <a href=${this.state.location.films}>JSON link of films featured in</a>
                             `
                         }
-                        // Waiting for react router to send these as attrs
-                        // JSON of known residents: ${location.residents}
-                        // JSON of films featured in: ${location.films}
-                        // Full JSON URL: ${location.url}
-
                         externalText={'See some pictures of me on Google Images!'}
-                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}`}
+                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${this.state.location.name}`}
+                        jsonText={'See my full JSON from the Ghibli API here!'}
+                        jsonLink={this.state.location.url}
                     />
-                ) : null}
+                : null}
             </CardGroup>
         );
     }
 }
 
-export default Locations;
+export default LocationByID;

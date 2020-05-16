@@ -20,11 +20,11 @@ class CardDisplay extends Component {
                         {this.props.attributes ? this.props.attributes.split('\n').map((attr, i) => <span key={i}>{attr}<br /></span>) : ''}
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer style={{margin: "5px"}}>
-                        <Button href={this.props.externalLink} variant={'dark'}>
+                    <Card.Footer>
+                        <Button href={this.props.externalLink} variant={'dark'} style={{margin: "5px"}}>
                             {this.props.externalText}
                         </Button>
-                        <Button href={this.props.jsonLink} variant={'dark'}>
+                        <Button href={this.props.jsonLink} variant={'dark'} style={{margin: "5px"}}>
                             {this.props.jsonText}
                         </Button>
                     </Card.Footer>

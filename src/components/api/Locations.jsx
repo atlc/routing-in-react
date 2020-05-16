@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
 import CardDisplay from '../CardDisplay';
 import 'isomorphic-fetch';
@@ -19,23 +20,25 @@ class Locations extends Component {
         return (
             <CardGroup>
                 {this.state.locations ? this.state.locations.map(location =>
-                    <CardDisplay
-                        key={location.id}
-                        id={location.id}
-                        title={location.name}
-                        description={`${location.climate} Climate; ${location.terrain} Terrain `}
-                        attributes={
-                            `Surface water percentage: ${location.surface_water}%
-                            `
-                        }
-                        // Waiting for react router to send these as attrs
-                        // JSON of known residents: ${location.residents}
-                        // JSON of films featured in: ${location.films}
-                        // Full JSON URL: ${location.url}
+                    <>
+                        <CardDisplay
+                            key={location.id}
+                            id={location.id}
+                            title={location.name}
+                            description={`${location.climate} Climate; ${location.terrain} Terrain `}
+                            attributes={
+                                `Surface water percentage: ${location.surface_water}%
+                                `
+                            }
 
-                        externalText={'See some pictures of me on Google Images!'}
-                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}`}
-                    />
+                            externalText={'See some pictures of me on Google Images!'}
+                            externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}`}
+                            jsonText={'See my individual card here!'}
+                            jsonLink={`/locations/${location.id}`}
+                        />
+                        <Button href={location.residents} variant={'dark'} style={{margin: "5px"}}>JSON link of known residents</Button>
+                        <Button href={location.films} variant={'dark'} style={{margin: "5px"}}>JSON link of films featured in</Button>
+                    </>
                 ) : null}
             </CardGroup>
         );
