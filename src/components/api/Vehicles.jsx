@@ -16,7 +16,6 @@ class Vehicle extends Component {
     }
 
     render() {
-        debugger;
         return (
             <CardGroup>
                 {this.state.vehicles ? this.state.vehicles.map(vehicle =>

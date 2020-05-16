@@ -16,7 +16,6 @@ class Locations extends Component {
     }
 
     render() {
-        debugger;
         return (
             <CardGroup>
                 {this.state.locations ? this.state.locations.map(location =>

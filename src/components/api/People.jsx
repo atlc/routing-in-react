@@ -16,7 +16,6 @@ class People extends Component {
     }
 
     render() {
-        debugger;
         return (
             <CardGroup>
                 {this.state.people ? this.state.people.map(person =>

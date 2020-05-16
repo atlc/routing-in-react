@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
@@ -13,49 +13,43 @@ import Vehicles from './api/Vehicles';
 
 class App extends Component {
     state = {
-        isInitialLoad: true,
-        endpointToLoad: null,
-        buttonTitles: ['Films', 'People', 'Locations', 'Species', 'Vehicles'],
-        buttonPanel: []
-    }
-
-    componentDidMount() {
-        const buttons = this.state.buttonTitles.map((btn, i) => 
-            <Col key={i} >
-                <Button variant='info' onClick={() => this.handleButtonClick(btn)} style={{marginTop: "5px", marginBottom: "15px"}}>
-                    Load All {btn}
-                </Button>
-            </Col>
-        );
-
-        this.setState({buttonPanel: buttons});
-    }
-
-    handleButtonClick = (endpoint) => {
-        let endpointComponent;
-        
-        switch(endpoint) {
-            case 'Films': endpointComponent = <Films />; break;
-            case 'People': endpointComponent = <People />; break;
-            case 'Locations': endpointComponent = <Locations />; break;
-            case 'Species': endpointComponent = <Species />; break;
-            case 'Vehicles': endpointComponent = <Vehicles />; break;
-            default: return;
-        }
-
-        this.setState({
-            isInitialLoad: false,
-            endpointToLoad: endpointComponent
-        });
+        isInitialLoad: true
     }
 
     render() {
         return (
-            <Container fluid>
+            <Container fluid className="text-center">
                 <Row>
-                    {this.state.isInitialLoad ? <Logo /> : ''}
-                </Row>
-                <Row>
+                    <Router>
+                        <>
+                            <Link to="/">
+                                <Button variant="info" style={{margin: "10px"}}>Home</Button>
+                            </Link>
+                            <Link to="/films">
+                                <Button variant="info" style={{margin: "10px"}}>Films</Button>
+                            </Link>
+                            <Link to="/people">
+                                <Button variant="info" style={{margin: "10px"}}>People</Button>
+                            </Link>
+                            <Link to="/locations">
+                                <Button variant="info" style={{margin: "10px"}}>Locations</Button>
+                            </Link>
+                            <Link to="/species">
+                                <Button variant="info" style={{margin: "10px"}}>Species</Button>
+                            </Link>
+                            <Link to="/vehicles">
+                                <Button variant="info" style={{margin: "10px"}}>Vehicles</Button>
+                            </Link>
+                            <Switch>
+                                <Route exact path="/" component={Logo} />
+                                <Route exact path="/films" component={Films} />
+                                <Route exact path="/people" component={People} />
+                                <Route exact path="/locations" component={Locations} />
+                                <Route exact path="/species" component={Species} />
+                                <Route exact path="/vehicles" component={Vehicles} />
+                            </Switch>
+                        </>
+                    </Router>
                     {this.state.isInitialLoad ? <> {this.state.buttonPanel} </>: ''}
                 </Row>
                 <Row>

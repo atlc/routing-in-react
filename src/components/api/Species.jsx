@@ -16,7 +16,6 @@ class Species extends Component {
     }
 
     render() {
-        debugger;
         return (
             <Col>
                 {this.state.species ? this.state.species.map(spec =>
