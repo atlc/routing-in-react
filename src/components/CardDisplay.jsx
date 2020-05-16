@@ -20,7 +20,7 @@ class CardDisplay extends Component {
                         {this.props.attributes ? this.props.attributes.split('\n').map((attr, i) => <span key={i}>{attr}<br /></span>) : ''}
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
+                    <Card.Footer style={{margin: "5px"}}>
                         <Button href={this.props.externalLink} variant={'dark'}>
                             {this.props.externalText}
                         </Button>

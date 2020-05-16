@@ -1,42 +1,45 @@
 import React, { Component } from 'react';
-import CardGroup from 'react-bootstrap/CardGroup';
 import CardDisplay from '../CardDisplay';
+import CardGroup from 'react-bootstrap/CardGroup';
+
 import 'isomorphic-fetch';
 import 'es6-promise';
 
-class Films extends Component {
+class FilmByID extends Component {
     state = {
-        films: null
+        film: null
     }
 
     componentDidMount() {
-        fetch('https://ghibliapi.herokuapp.com/films')
+        fetch(`https://ghibliapi.herokuapp.com/films/${this.props.match.params.id}`)
             .then(res => res.json())
-            .then(res => this.setState({films: res}))
+            .then(res => this.setState({film: res}))
     }
 
     render() {
         return (
             <CardGroup>
-                {this.state.films ? this.state.films.map(film =>
-                    <CardDisplay
-                        key={film.id}
-                        id={film.id}
-                        title={film.title}
-                        description={film.description}
-                        attributes={
-                            `Directed by: ${film.director}
-                            Produced by: ${film.producer}
-                            Release date: ${film.release_date}
-                            Rotten Tomatoes score: ${film.rt_score}`
-                        }
-                        externalText={'See more info in an IMDB search!'}
-                        externalLink={`https://www.imdb.com/find?q=${film.title}+${film.release_date}`}
-                    />
-                ) : null}
+            {this.state.film ? 
+                <CardDisplay
+                    key={this.state.film.id}
+                    id={this.state.film.id}
+                    title={this.state.film.title}
+                    description={this.state.film.description}
+                    attributes={
+                        `Directed by: ${this.state.film.director}
+                        Produced by: ${this.state.film.producer}
+                        Release date: ${this.state.film.release_date}
+                        Rotten Tomatoes score: ${this.state.film.rt_score}`
+                    }
+                    externalText={'See more info in an IMDB search!'}
+                    externalLink={`https://www.imdb.com/find?q=${this.state.film.title}+${this.state.film.release_date}`}
+                    jsonText={'See my full JSON from the Ghibli API here!'}
+                    jsonLink={this.state.film.url}
+                />
+            : null}
             </CardGroup>
         );
     }
 }
 
-export default Films;
+export default FilmByID;

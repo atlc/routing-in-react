@@ -10,7 +10,7 @@ class Films extends Component {
     }
 
     componentDidMount() {
-        fetch('https://ghibliapi.herokuapp.com/films')
+        fetch(`https://ghibliapi.herokuapp.com/films${this.props.match.params.id ? '/'+this.props.match.params.id : '/'}`)
             .then(res => res.json())
             .then(res => this.setState({films: res}))
     }
@@ -33,7 +33,7 @@ class Films extends Component {
                         externalText={'See more info in an IMDB search!'}
                         externalLink={`https://www.imdb.com/find?q=${film.title}+${film.release_date}`}
                         jsonText={'See my individual card here!'}
-                        jsonLink={film.url}
+                        jsonLink={`/films/${film.id}`}
                     />
                 ) : null}
             </CardGroup>

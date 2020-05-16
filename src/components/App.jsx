@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 
 import Logo from './Logo';
 import Films from './api/Films';
+import FilmByID from './api/FilmByID';
 import Locations from './api/Locations';
 import People from './api/People';
 import Species from './api/Species';
@@ -43,7 +44,7 @@ class App extends Component {
                             <Switch>
                                 <Route exact path="/" component={Logo} />
                                 <Route exact path="/films" component={Films} />
-                                <Route path="/films/:id" component={Films} />
+                                <Route path="/films/:id" component={FilmByID} />
                                 <Route exact path="/people" component={People} />
                                 <Route exact path="/locations" component={Locations} />
                                 <Route exact path="/species" component={Species} />
@@ -51,7 +52,6 @@ class App extends Component {
                             </Switch>
                         </>
                     </Router>
-                    {this.state.isInitialLoad ? <> {this.state.buttonPanel} </>: ''}
                 </Row>
             </Container>
         );
