@@ -32,8 +32,6 @@ class Films extends Component {
                         }
                         externalText={'See more info in an IMDB search!'}
                         externalLink={`https://www.imdb.com/find?q=${film.title}+${film.release_date}`}
-                        jsonText={'See my individual card here!'}
-                        jsonLink={film.url}
                     />
                 ) : null}
             </CardGroup>

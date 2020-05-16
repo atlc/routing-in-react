@@ -21,8 +21,11 @@ class CardDisplay extends Component {
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <Button href={this.props.buttonLink} variant={'dark'}>
-                            {this.props.buttonText}
+                        <Button href={this.props.externalLink} variant={'dark'}>
+                            {this.props.externalText}
+                        </Button>
+                        <Button href={this.props.jsonLink} variant={'dark'}>
+                            {this.props.jsonText}
                         </Button>
                     </Card.Footer>
                 </Card>
