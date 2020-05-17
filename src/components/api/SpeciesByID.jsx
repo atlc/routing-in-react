@@ -33,9 +33,11 @@ class Species extends Component {
                         // JSON of films featured in: ${spec.films}
                         // JSON of characters of this species: ${spec.people}
                         // Full JSON URL: ${spec.url}
-
+                        
                         externalText={'See some pictures of me on Google Images!'}
                         externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${spec.name}`}
+                        jsonText={'Full JSON about me'}
+                        jsonLink={spec.url}
                     />
                 ) : null}
             </Col>

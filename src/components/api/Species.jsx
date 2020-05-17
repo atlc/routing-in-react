@@ -29,13 +29,13 @@ class Species extends Component {
                             Known hair colors: ${spec.hair_colors}
                             `
                         }
-                        // Waiting for react router to send these as attrs
-                        // JSON of films featured in: ${spec.films}
-                        // JSON of characters of this species: ${spec.people}
-                        // Full JSON URL: ${spec.url}
-
-                        externalText={'See some pictures of me on Google Images!'}
-                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${spec.name}`}
+                        buttons={
+                            { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${spec.name}` },
+                            { text: 'See my individual card here!', link: `/species/${spec.id}` },
+                            { text: 'See my full JSON data here', link: `${spec.url}`},
+                            { text: 'See characters of my species.', link: `${spec.people}` },
+                            { text: 'See films I am featured in.', link: `${spec.films}`}
+                        }
                     />
                 ) : null}
             </Col>

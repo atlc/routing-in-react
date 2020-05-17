@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
 import CardDisplay from '../CardDisplay';
 import 'isomorphic-fetch';
@@ -30,14 +29,14 @@ class Locations extends Component {
                                 `Surface water percentage: ${location.surface_water}%
                                 `
                             }
-
-                            externalText={'See some pictures of me on Google Images!'}
-                            externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}`}
-                            jsonText={'See my individual card here!'}
-                            jsonLink={`/locations/${location.id}`}
+                            buttons={
+                                { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}` },
+                                { text: 'See my individual card here!', link: `/locations/${location.id}` },
+                                { text: 'See my full JSON data here', link: `${location.url}`},
+                                { text: 'JSON link of known residents.', link: `${location.residents}` },
+                                { text: 'JSON link of films this location is featured in.', link: `${location.films}`}
+                            }
                         />
-                        <a href={location.residents} variant={'dark'} style={{margin: "5px"}}>JSON link of known residents</a>
-                        <a href={location.films} variant={'dark'} style={{margin: "5px"}}>JSON link of films featured in</a>
                     </>
                 ) : null}
             </CardGroup>

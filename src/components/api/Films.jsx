@@ -30,10 +30,11 @@ class Films extends Component {
                             Release date: ${film.release_date}
                             Rotten Tomatoes score: ${film.rt_score}`
                         }
-                        externalText={'See more info in an IMDB search!'}
-                        externalLink={`https://www.imdb.com/find?q=${film.title}+${film.release_date}`}
-                        jsonText={'See my individual card here!'}
-                        jsonLink={`/films/${film.id}`}
+
+                        buttons={
+                            { text: "See more info in an IMDB search!", link: `https://www.imdb.com/find?q=${film.title}+${film.release_date}` }, 
+                            { text: "See my individual card here!", link: `/films/${film.id}` }
+                        }
                     />
                 ) : null}
             </CardGroup>
