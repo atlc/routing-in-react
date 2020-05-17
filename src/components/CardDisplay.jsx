@@ -12,17 +12,17 @@ class CardDisplay extends Component {
                     <hr />
                     <Card.Body>
                     <Card.Title className='font-weight-bold'>{this.props.title}</Card.Title>
-                    <Card.Title className='text-muted'>ID: {this.props.id}</Card.Title>
+                    <Card.Title className='text-muted' style={{fontSize: "0.7em"}}>ID: {this.props.id}</Card.Title>
                     <hr />
-                    <Card.Text>
+                    <div>
                         {this.props.description}
-                        {this.props.attributes ? <hr /> : ''}
+                        <hr />
                         {this.props.attributes ? this.props.attributes.split('\n').map((attr, i) => <span key={i}>{attr}<br /></span>) : ''}
-                    </Card.Text>
+                    </div>
                     </Card.Body>
                     <Card.Footer>
-                        {this.props.buttons ? this.props.buttons.map(button =>
-                            <Button href={button.link} variant={'dark'} style={{margin: "5px"}}>{button.text}</Button>
+                        {this.props.buttons ? this.props.buttons.map((button, i) =>
+                            <Button key={i} href={button.link} variant={'dark'} style={{margin: "5px"}}>{button.text}</Button>
                         ) : null}
                     </Card.Footer>
                 </Card>
