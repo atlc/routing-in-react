@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardDisplay from '../CardDisplay';
-import Row from 'react-bootstrap/Row';
+import CardGroup from 'react-bootstrap/CardGroup';
 import 'isomorphic-fetch';
 import 'es6-promise';
 
@@ -17,7 +17,7 @@ class FilmByID extends Component {
 
     render() {
         return (
-            <Row className="text-center">
+            <CardGroup>
                 {this.state.film ? 
                     <CardDisplay
                         key={this.state.film.id}
@@ -36,7 +36,7 @@ class FilmByID extends Component {
                         ]}
                     />
                 : null}
-            </Row>
+            </CardGroup>
         );
     }
 }

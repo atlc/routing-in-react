@@ -30,11 +30,11 @@ class Locations extends Component {
                                 `
                             }
                             buttons={[
-                                { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}` },
-                                { text: 'See my individual card here!', link: `/locations/${location.id}` },
-                                { text: 'See my full JSON data here', link: `${location.url}`},
-                                { text: 'JSON link of known residents.', link: `${location.residents}` },
-                                { text: 'JSON link of films this location is featured in.', link: `${location.films}`}
+                                { text: 'Google Images', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}` },
+                                { text: 'Individual card', link: `/locations/${location.id}` },
+                                { text: 'Full data (JSON)', link: `${location.url}`},
+                                { text: 'Known residents (JSON)', link: `${location.residents}` },
+                                { text: 'Films this location is featured in (JSON)', link: `${location.films}`}
                             ]}
                         />
                     </>

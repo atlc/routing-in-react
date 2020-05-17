@@ -19,7 +19,7 @@ import VehicleByID from './api/VehicleByID';
 class App extends Component {
     render() {
         return (
-            <Container fluid className="text-center">
+            <Container className="text-center">
                 <Row>
                     <Router>
                         <>

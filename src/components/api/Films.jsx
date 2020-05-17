@@ -31,8 +31,8 @@ class Films extends Component {
                             Rotten Tomatoes score: ${film.rt_score}`
                         }
                         buttons={[
-                            { text: "See more info in an IMDB search!", link: `https://www.imdb.com/find?q=${film.title}+${film.release_date}` }, 
-                            { text: "See my individual card here!", link: `/films/${film.id}` }
+                            { text: "IMDB search", link: `https://www.imdb.com/find?q=${film.title}+${film.release_date}` }, 
+                            { text: "Individual card", link: `/films/${film.id}` }
                         ]}
                     />
                 ) : null}

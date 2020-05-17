@@ -30,11 +30,11 @@ class Species extends Component {
                             `
                         }
                         buttons={[
-                            { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${spec.name}` },
-                            { text: 'See my individual card here!', link: `/species/${spec.id}` },
-                            { text: 'See my full JSON data here', link: `${spec.url}`},
-                            { text: 'See characters of my species.', link: `${spec.people}` },
-                            { text: 'See films I am featured in.', link: `${spec.films}`}
+                            { text: 'Google Images', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${spec.name}` },
+                            { text: 'Individual card', link: `/species/${spec.id}` },
+                            { text: 'Full data (JSON)', link: `${spec.url}`},
+                            { text: 'Characters of my species (JSON)', link: `${spec.people}` },
+                            { text: 'Films I am featured in (JSON)', link: `${spec.films}`}
                         ]}
                     />
                 ) : null}

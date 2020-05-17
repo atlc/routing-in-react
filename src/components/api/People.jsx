@@ -30,11 +30,11 @@ class People extends Component {
                             `
                         }
                         buttons={[
-                            { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${person.name}` },
-                            { text: 'See my individual card here!', link: `/people/${person.id}` },
-                            { text: 'See my full JSON data here', link: `${person.url}`},
-                            { text: 'See more about my species.', link: `${person.species}` },
-                            { text: 'See films I am featured in.', link: `${person.films}`}
+                            { text: 'Google Images', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${person.name}` },
+                            { text: 'Individual card', link: `/people/${person.id}` },
+                            { text: 'Full data (JSON)', link: `${person.url}`},
+                            { text: 'More about my species (JSON)', link: `${person.species}` },
+                            { text: 'Films I am featured in (JSON)', link: `${person.films}`}
                         ]}
                     />
                 ) : null}
