@@ -4,13 +4,13 @@ import CardDisplay from '../CardDisplay';
 import 'isomorphic-fetch';
 import 'es6-promise';
 
-class Species extends Component {
+class SpeciesByID extends Component {
     state = {
         species: null
     }
 
     componentDidMount() {
-        fetch('https://ghibliapi.herokuapp.com/species')
+        fetch(`https://ghibliapi.herokuapp.com/species/${this.props.match.params.id}`)
             .then(res => res.json())
             .then(res => this.setState({species: res}))
     }
@@ -18,31 +18,26 @@ class Species extends Component {
     render() {
         return (
             <Col>
-                {this.state.species ? this.state.species.map(spec =>
+                {this.state.species ?
                     <CardDisplay
-                        key={spec.id}
-                        id={spec.id}
-                        title={spec.name}
-                        description={`"${spec.name}" is characterized as "${spec.classification}".`}
+                        key={this.state.species.id}
+                        id={this.state.species.id}
+                        title={this.state.species.name}
+                        description={`"${this.state.species.name}" is characterized as "${this.state.species.classification}".`}
                         attributes={
-                            `Known eye colors: ${spec.eye_colors}
-                            Known hair colors: ${spec.hair_colors}
+                            `Known eye colors: ${this.state.species.eye_colors}
+                            Known hair colors: ${this.state.species.hair_colors}
                             `
                         }
-                        // Waiting for react router to send these as attrs
-                        // JSON of films featured in: ${spec.films}
-                        // JSON of characters of this species: ${spec.people}
-                        // Full JSON URL: ${spec.url}
-                        
-                        externalText={'See some pictures of me on Google Images!'}
-                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${spec.name}`}
-                        jsonText={'Full JSON about me'}
-                        jsonLink={spec.url}
+                        buttons={[
+                            { text: 'Back to Species', link: '/species' },
+                            { text: 'Home', link: '/' }
+                        ]}
                     />
-                ) : null}
+                : null}
             </Col>
         );
     }
 }
 
-export default Species;
+export default SpeciesByID;

@@ -4,43 +4,40 @@ import CardDisplay from '../CardDisplay';
 import 'isomorphic-fetch';
 import 'es6-promise';
 
-class People extends Component {
+class PersonByID extends Component {
     state = {
-        people: null
+        person: null
     }
 
     componentDidMount() {
-        fetch('https://ghibliapi.herokuapp.com/people')
+        fetch(`https://ghibliapi.herokuapp.com/people/${this.props.match.params.id}`)
             .then(res => res.json())
-            .then(res => this.setState({people: res}))
+            .then(res => this.setState({person: res}))
     }
 
     render() {
         return (
             <CardGroup>
-                {this.state.people ? this.state.people.map(person =>
+                {this.state.person ?
                     <CardDisplay
-                        key={person.id}
-                        id={person.id}
-                        title={person.name}
-                        description={`${person.name} is a ${person.gender}, with an age approximated of ${person.age}.`}
+                        key={this.state.person.id}
+                        id={this.state.person.id}
+                        title={this.state.person.name}
+                        description={`${this.state.person.name} is a ${this.state.person.gender}, with an age approximated of ${this.state.person.age}.`}
                         attributes={
-                            `Eye color: ${person.eye_color}
-                            Hair color: ${person.hair_color}
+                            `Eye color: ${this.state.person.eye_color}
+                            Hair color: ${this.state.person.hair_color}
                             `
                         }
-                        // Waiting for react router to send these as attrs
-                        // JSON of films featured in: ${person.filmss}
-                        // JSON of person's species: ${person.species}
-                        // Full JSON URL: ${person.url}
-
-                        externalText={'See some pictures of me on Google Images!'}
-                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${person.name}`}
+                        buttons={[
+                            { text: 'Back to People', link: '/people' },
+                            { text: 'Home', link: '/' }
+                        ]}
                     />
-                ) : null}
+                : null}
             </CardGroup>
         );
     }
 }
 
-export default People;
+export default PersonByID;

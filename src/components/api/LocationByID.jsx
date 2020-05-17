@@ -26,14 +26,12 @@ class LocationByID extends Component {
                         description={`${this.state.location.climate} Climate; ${this.state.location.terrain} Terrain`}
                         attributes={
                             `Surface water percentage: ${this.state.location.surface_water}%
-                            <a href=${this.state.location.residents}>JSON link of known residents</a>
-                            <a href=${this.state.location.films}>JSON link of films featured in</a>
                             `
                         }
-                        externalText={'See some pictures of me on Google Images!'}
-                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${this.state.location.name}`}
-                        jsonText={'See my full JSON from the Ghibli API here!'}
-                        jsonLink={this.state.location.url}
+                        buttons={[
+                            { text: 'Back to Locations', link: '/locations' },
+                            { text: 'Home', link: '/' }
+                        ]}
                     />
                 : null}
             </CardGroup>

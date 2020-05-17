@@ -4,43 +4,40 @@ import CardDisplay from '../CardDisplay';
 import 'isomorphic-fetch';
 import 'es6-promise';
 
-class Vehicle extends Component {
+class VehicleByID extends Component {
     state = {
-        vehicles: null
+        vehicle: null
     }
 
     componentDidMount() {
-        fetch('https://ghibliapi.herokuapp.com/vehicles')
+        fetch(`https://ghibliapi.herokuapp.com/vehicles/${this.props.match.params.id}`)
             .then(res => res.json())
-            .then(res => this.setState({vehicles: res}))
+            .then(res => this.setState({vehicle: res}))
     }
 
     render() {
         return (
             <CardGroup>
-                {this.state.vehicles ? this.state.vehicles.map(vehicle =>
+                {this.state.vehicle ?
                     <CardDisplay
-                        key={vehicle.id}
-                        id={vehicle.id}
-                        title={vehicle.name}
-                        description={vehicle.description}
+                        key={this.state.vehicle.id}
+                        id={this.state.vehicle.id}
+                        title={this.state.vehicle.name}
+                        description={this.state.vehicle.description}
                         attributes={
-                            `Classification: ${vehicle.vehicle_class}
-                            Length: ${vehicle.length}
+                            `Classification: ${this.state.vehicle.vehicle_class}
+                            Length: ${this.state.vehicle.length}
                             `
                         }
-                        // Waiting for react router to send these as attrs
-                        // JSON of films featured in: ${vehicle.films}
-                        // JSON of this vehicle's pilot: ${vehicle.pilot}
-                        // Full JSON URL: ${vehicle.url}
-
-                        externalText={'See some pictures of me on Google Images!'}
-                        externalLink={`https://www.google.com/search?tbm=isch&q=studio+ghibli+${vehicle.name}`}
+                        buttons={[
+                            { text: 'Back to Vehicles', link: '/vehicles' },
+                            { text: 'Home', link: '/' }
+                        ]}
                     />
-                ) : null}
+                : null}
             </CardGroup>
         );
     }
 }
 
-export default Vehicle;
+export default VehicleByID;

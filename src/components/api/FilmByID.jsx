@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardDisplay from '../CardDisplay';
-import CardGroup from 'react-bootstrap/CardGroup';
+import Row from 'react-bootstrap/Row';
 import 'isomorphic-fetch';
 import 'es6-promise';
 
@@ -17,7 +17,7 @@ class FilmByID extends Component {
 
     render() {
         return (
-            <CardGroup>
+            <Row className="text-center">
                 {this.state.film ? 
                     <CardDisplay
                         key={this.state.film.id}
@@ -30,13 +30,13 @@ class FilmByID extends Component {
                             Release date: ${this.state.film.release_date}
                             Rotten Tomatoes score: ${this.state.film.rt_score}`
                         }
-                        externalText={'See more info in an IMDB search!'}
-                        externalLink={`https://www.imdb.com/find?q=${this.state.film.title}+${this.state.film.release_date}`}
-                        jsonText={'See my full JSON from the Ghibli API here!'}
-                        jsonLink={this.state.film.url}
+                        buttons={[
+                            { text: 'Back to Films', link: '/films' },
+                            { text: 'Home', link: '/' }
+                        ]}
                     />
                 : null}
-            </CardGroup>
+            </Row>
         );
     }
 }

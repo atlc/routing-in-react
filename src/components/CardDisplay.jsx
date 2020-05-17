@@ -21,9 +21,9 @@ class CardDisplay extends Component {
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        {this.props.buttons.map(button =>
+                        {this.props.buttons ? this.props.buttons.map(button =>
                             <Button href={button.link} variant={'dark'} style={{margin: "5px"}}>{button.text}</Button>
-                        )}
+                        ) : null}
                     </Card.Footer>
                 </Card>
             </Col>
