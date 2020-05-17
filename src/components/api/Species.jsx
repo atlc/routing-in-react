@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Col from 'react-bootstrap/Col';
+import CardGroup from 'react-bootstrap/CardGroup';
 import CardDisplay from '../CardDisplay';
 import 'isomorphic-fetch';
 import 'es6-promise';
@@ -17,7 +17,7 @@ class Species extends Component {
 
     render() {
         return (
-            <Col>
+            <CardGroup>
                 {this.state.species ? this.state.species.map(spec =>
                     <CardDisplay
                         key={spec.id}
@@ -29,16 +29,16 @@ class Species extends Component {
                             Known hair colors: ${spec.hair_colors}
                             `
                         }
-                        buttons={
+                        buttons={[
                             { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${spec.name}` },
                             { text: 'See my individual card here!', link: `/species/${spec.id}` },
                             { text: 'See my full JSON data here', link: `${spec.url}`},
                             { text: 'See characters of my species.', link: `${spec.people}` },
                             { text: 'See films I am featured in.', link: `${spec.films}`}
-                        }
+                        ]}
                     />
                 ) : null}
-            </Col>
+            </CardGroup>
         );
     }
 }

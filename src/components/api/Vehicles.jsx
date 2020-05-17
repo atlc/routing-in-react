@@ -29,13 +29,13 @@ class Vehicle extends Component {
                             Length: ${vehicle.length}
                             `
                         }
-                        buttons={
+                        buttons={[
                             { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${vehicle.name}` },
                             { text: 'See my individual card here!', link: `/vehicles/${vehicle.id}` },
                             { text: 'See my full JSON data here', link: `${vehicle.url}`},
                             { text: 'See more about my pilot.', link: `${vehicle.pilot}` },
                             { text: 'See films I am featured in.', link: `${vehicle.films}`}
-                        }
+                        ]}
                     />
                 ) : null}
             </CardGroup>

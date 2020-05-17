@@ -29,13 +29,13 @@ class People extends Component {
                             Hair color: ${person.hair_color}
                             `
                         }
-                        buttons={
+                        buttons={[
                             { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${person.name}` },
                             { text: 'See my individual card here!', link: `/people/${person.id}` },
                             { text: 'See my full JSON data here', link: `${person.url}`},
                             { text: 'See more about my species.', link: `${person.species}` },
                             { text: 'See films I am featured in.', link: `${person.films}`}
-                        }
+                        ]}
                     />
                 ) : null}
             </CardGroup>

@@ -29,13 +29,13 @@ class Locations extends Component {
                                 `Surface water percentage: ${location.surface_water}%
                                 `
                             }
-                            buttons={
+                            buttons={[
                                 { text: 'See some pictures of me on Google Images!', link: `https://www.google.com/search?tbm=isch&q=studio+ghibli+${location.name}` },
                                 { text: 'See my individual card here!', link: `/locations/${location.id}` },
                                 { text: 'See my full JSON data here', link: `${location.url}`},
                                 { text: 'JSON link of known residents.', link: `${location.residents}` },
                                 { text: 'JSON link of films this location is featured in.', link: `${location.films}`}
-                            }
+                            ]}
                         />
                     </>
                 ) : null}
