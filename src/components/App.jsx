@@ -20,9 +20,9 @@ class App extends Component {
     render() {
         return (
             <Container className="text-center">
-                <Row>
-                    <Router>
-                        <>
+                <Router>
+                    <>
+                        <Row>
                             <Link to="/">
                                 <Button variant="dark" style={{margin: "10px"}}>Home</Button>
                             </Link>
@@ -41,6 +41,8 @@ class App extends Component {
                             <Link to="/vehicles">
                                 <Button variant="dark" style={{margin: "10px"}}>Vehicles</Button>
                             </Link>
+                        </Row>
+                        <Row>
                             <Switch>
                                 <Route exact path="/" component={Logo} />
                                 <Route exact path="/films" component={Films} />
@@ -54,9 +56,9 @@ class App extends Component {
                                 <Route exact path="/vehicles" component={Vehicles} />
                                 <Route exact path="/vehicles/:id" component={VehicleByID} />
                             </Switch>
-                        </>
-                    </Router>
-                </Row>
+                        </Row>
+                    </>
+                </Router>
             </Container>
         );
     }

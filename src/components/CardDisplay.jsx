@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 class CardDisplay extends Component {
     render() {
         return (
-            <Col>
+            <Col sm={2} md={4} lg={3} xl={3} >
                 <Card className='text-center' style={{marginTop: "5px", marginBottom: "15px"}}>
                     <img src={require('../assets/logo.png')} style={{maxWidth: '90vw'}} alt='The Studio Ghibli logo' />
                     <hr />
